@@ -8,20 +8,24 @@ import { CompetitionsService } from '../../services/competitions.service';
 })
 
 export class CompetitionsComponent {
+  
+  competitions : any[] = [];
+  errorMessage: string = '';
 
   constructor(private competitionService:CompetitionsService) { }
 
-  getAllCompetitions(){
-    this.competitionService.getAllCompetitions().subscribe(
-      (response) => {
-        console.log(response);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
+ 
   ngOnInit() {
     this.getAllCompetitions();
+  }
+  getAllCompetitions(){
+    this.competitionService.getAllCompetitions().subscribe(
+      (response: any) => {
+        this.competitions.push(...response.details.Competitions);
+      },
+      (error) => {
+         this.errorMessage = error.message;
+      }
+    );
   }
 }
