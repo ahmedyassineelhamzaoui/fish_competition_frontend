@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AppModule } from '../../app.module';
 
 
 
@@ -8,7 +9,8 @@ import { CommonModule } from '@angular/common';
     
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AppModule
   ]
 })
 export class LevelModule { }
