@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FishService } from '../../services/fish.service';
 import {MatDialog} from '@angular/material/dialog';
+import { AddFishComponent } from '../add-fish/add-fish.component';
 
 @Component({
   selector: 'app-fish',
