@@ -19,9 +19,7 @@ export class MemberComponent {
     private memberService:MemberService
     ) { }
 
-  openAddMemberModal() {
-    this.dialog.open(AddMemberComponent);
-  }
+  
   ngOnInit() {
     this.isLoading = true;
     this.getAllMembers();
@@ -37,5 +35,8 @@ export class MemberComponent {
         this.errorMessage = error.message;
       }
     );
+  }
+  openAddMemberModal() {
+    this.dialog.open(AddMemberComponent);
   }
 }
