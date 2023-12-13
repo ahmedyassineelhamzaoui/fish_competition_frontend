@@ -8,6 +8,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class AddCompetitionComponent {
 
+  errorMessage: string = '';
+  successMessage: string = '';
   constructor(
     private dialogRef: MatDialogRef<AddCompetitionComponent>,
   ) { }
