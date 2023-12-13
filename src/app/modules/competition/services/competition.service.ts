@@ -1,16 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../../../environments/environment';
+import { environment } from '../../../../environments/environment.deveopment';
 
-// singlton pattern is used here 
 @Injectable({
   providedIn: 'root'
 })
-export class CompetitionsService {
+export class CompetitionService {
 
   constructor(private httpClient:HttpClient) { }
 
   getAllCompetitions(){
-    return this.httpClient.get(environment.apiURL+'competitions');
+    return this.httpClient.get(environment.apiURL +'competitions');
   }
 }

@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LevelsComponent } from './components/levels/levels.component';
-
+import { AppModule } from '../../app.module';
 
 
 @NgModule({
   declarations: [
-    LevelsComponent
+    
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AppModule
   ]
 })
-export class LevelsModule { }
+export class CompetitionModule { }
