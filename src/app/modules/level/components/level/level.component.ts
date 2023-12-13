@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { LevelService } from '../../services/level.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AddLevelComponent } from '../add-level/add-level.component';
 
 @Component({
   selector: 'app-level',
@@ -12,7 +14,10 @@ export class LevelComponent {
   isLoading: boolean = false;
   levels: any[]=[];
 
-  constructor(private levelService:LevelService) { }
+  constructor(
+    private levelService:LevelService,
+    private dialog: MatDialog
+    ) { }
 
   ngOnInit() {
     this.isLoading=true;
@@ -29,5 +34,8 @@ export class LevelComponent {
         this.isLoading=false;
       }
     );
+  }
+  openAddLevelModal(){
+    this.dialog.open(AddLevelComponent);
   }
 }
