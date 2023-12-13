@@ -4,11 +4,13 @@ import { HttpClientModule, provideHttpClient, withFetch} from '@angular/common/h
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
+import { LevelComponent } from './modules/level/components/level/level.component';
 import { CompetitionsComponent } from './modules/competition/components/competition/competition.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LevelComponent,
     CompetitionsComponent
   ],
   imports: [

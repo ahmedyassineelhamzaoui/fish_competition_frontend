@@ -11,8 +11,7 @@ import { SharedModule } from '../../shared/shared.module';
   ],
   imports: [
     CommonModule,
-    AppModule,
-    SharedModule
+    AppModule
   ]
 })
 export class CompetitionModule { }

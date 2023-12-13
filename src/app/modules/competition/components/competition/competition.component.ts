@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { CompetitionService } from '../../services/competition.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddCompetitionComponent } from '../add-competition/add-competition.component';
+import { CompetitionService } from '../../services/competition.service';
 
 @Component({
   selector: 'app-competitions',
@@ -16,7 +16,7 @@ export class CompetitionsComponent {
   isLoading: boolean = false;
 
   constructor(
-    private competitionService:CompetitionService,
+    private competitionService: CompetitionService,
     private addCompetitionModal: MatDialog
     ) { }
 
