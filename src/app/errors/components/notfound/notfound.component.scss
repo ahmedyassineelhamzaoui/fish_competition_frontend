@@ -1,0 +1,30 @@
+.not-found {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    text-align: center;
+  
+    h1 {
+      font-size: 6em;
+      margin-bottom: 1em;
+      color: rgb(0, 91, 227);
+    }
+  
+    p {
+      font-size: 2em;
+      margin-bottom: 1em;
+      color: rgb(2, 41, 100);
+    }
+  
+    a {
+      font-size: 1.5em;
+      color: #007bff;
+      text-decoration: none;
+      cursor: pointer;
+      &:hover {
+        color: #0056b3;
+      }
+    }
+  }
