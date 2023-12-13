@@ -7,13 +7,16 @@ import { SharedModule } from './shared/shared.module';
 import { LevelComponent } from './modules/level/components/level/level.component';
 import { CompetitionsComponent } from './modules/competition/components/competition/competition.component';
 import { FishComponent } from './modules/fishs/components/fish/fish.component';
+import { MemberComponent } from './modules/members/components/member/member.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LevelComponent,
     CompetitionsComponent,
-    FishComponent
+    FishComponent,
+    MemberComponent
+    
   ],
   imports: [
     BrowserModule,
