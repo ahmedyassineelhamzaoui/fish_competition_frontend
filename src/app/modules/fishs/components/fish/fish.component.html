@@ -39,13 +39,13 @@
                 </tr>
             </thead>
             <tbody>
-                @for(fish of fishes; track $index){
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                @if(fishes.length > 0){
+                <tr *ngFor="let fish of fishes | slice: currentPageIndex * pageSize : (currentPageIndex + 1) * pageSize; let i = index" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                      {{$index +1}}
+                      {{i + 1 }}
                     </th>
                     <td class="px-6 py-4 text-center">
-                        {{fish.name}}
+                        {{fish.name}} 
                     </td>
                     <td class="px-6 py-4 text-center">
                         {{fish.averageWeight}}
@@ -61,7 +61,7 @@
                         </div>
                     </td>
                 </tr>
-                }@empty {
+                }@else {
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <td colspan="7" class="px-6 py-4 text-center">
                         No Level found
@@ -71,6 +71,14 @@
             </tbody>
     
         </table>
+        <mat-paginator
+            [length]="fishes.length"
+            [showFirstLastButtons]="true"
+            [pageSizeOptions]="[5, 10, 25, 100]"
+            [pageIndex]="currentPageIndex"
+            (page)="handlePageEvent($event)"
+        >
+        </mat-paginator>
         }
     </div>
 }@else {

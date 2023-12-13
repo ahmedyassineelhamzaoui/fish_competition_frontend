@@ -8,6 +8,7 @@ import { LevelComponent } from './modules/level/components/level/level.component
 import { CompetitionsComponent } from './modules/competition/components/competition/competition.component';
 import { FishComponent } from './modules/fishs/components/fish/fish.component';
 import { MemberComponent } from './modules/members/components/member/member.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MemberComponent } from './modules/members/components/member/member.comp
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    MatPaginatorModule
   ],
   providers: [
     provideClientHydration(),

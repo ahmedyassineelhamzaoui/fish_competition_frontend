@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FishService } from '../../services/fish.service';
 import {MatDialog} from '@angular/material/dialog';
 import { AddFishComponent } from '../add-fish/add-fish.component';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-fish',
@@ -13,7 +14,9 @@ export class FishComponent {
   isLoading: boolean = false;
   fishes: any[]=[];
   errorMessage: string='';
-  
+  pageSize: number = 5;
+  currentPageIndex: number = 0;
+
   constructor(
     private fishService:FishService,
     private dialog: MatDialog
@@ -22,6 +25,12 @@ export class FishComponent {
     this.isLoading=true;
     this.getAllFishes();
   }
+
+  handlePageEvent(pageEvent: PageEvent) {
+    this.currentPageIndex = pageEvent.pageIndex;
+    this.pageSize = pageEvent.pageSize;
+  }
+
   getAllFishes(){
     this.fishService.getAllFishes().subscribe(
       (response:any) => {
