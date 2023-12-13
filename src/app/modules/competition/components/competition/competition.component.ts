@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CompetitionService } from '../../services/competition.service';
-
+import { MatDialog } from '@angular/material/dialog';
+import { AddCompetitionComponent } from '../add-competition/add-competition.component';
 
 @Component({
   selector: 'app-competitions',
@@ -14,7 +15,10 @@ export class CompetitionsComponent {
   errorMessage: string = '';
   isLoading: boolean = false;
 
-  constructor(private competitionService:CompetitionService) { }
+  constructor(
+    private competitionService:CompetitionService,
+    private addCompetitionModal: MatDialog
+    ) { }
 
  
   ngOnInit() {
@@ -32,6 +36,9 @@ export class CompetitionsComponent {
          this.isLoading = false;
       }
     );
+  }
+  openAddCompetitionModal(){
+    this.addCompetitionModal.open(AddCompetitionComponent);
   }
 }
 	
