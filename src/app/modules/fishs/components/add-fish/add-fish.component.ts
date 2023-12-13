@@ -19,8 +19,9 @@ export class AddFishComponent {
     private dialogRef: MatDialogRef<AddFishComponent>
   ) { }
   
-  closeLevelModal(){
-    this.dialogRef.close();
+  
+  ngOnInit(){
+    this.getAllLevels();
   }
   getAllLevels(){
     this.levelService.getAllLevels().subscribe(
@@ -31,6 +32,11 @@ export class AddFishComponent {
         this.errorMessage=error.message;
       }
     );
+  }
+  closeLevelModal(){
+    this.dialogRef.close();
+    this.errorMessage = '';
+    this.successMessage = '';
   }
 
 }
