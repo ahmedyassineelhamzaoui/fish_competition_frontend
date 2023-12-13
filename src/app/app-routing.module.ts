@@ -3,8 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotfoundComponent } from './errors/components/notfound/notfound.component';
 import { CompetitionsComponent } from './modules/competition/components/competition/competition.component';
 import { LevelComponent } from './modules/level/components/level/level.component';
+import { FishComponent } from './modules/fishs/components/fish/fish.component';
 
 const routes: Routes = [
+  {path: 'fishes', component: FishComponent},
   {path: 'competitions' , component: CompetitionsComponent},
   {path: 'levels' ,'component': LevelComponent},
   {path: '', redirectTo: '/competitions', pathMatch: 'full'},
