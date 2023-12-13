@@ -57,7 +57,7 @@
                         {{level.level}}
                     </td>
                     <td class="px-6 py-4 text-center">
-                        {{level.description}}
+                        <p title="{{level.description}}">{{level.description | limitTo:40 }}</p>
                     </td>
                     <td class="px-6 py-4 text-center">
                         {{level.points}}

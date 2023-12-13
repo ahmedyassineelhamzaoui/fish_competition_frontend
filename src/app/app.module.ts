@@ -9,6 +9,7 @@ import { CompetitionsComponent } from './modules/competition/components/competit
 import { FishComponent } from './modules/fishs/components/fish/fish.component';
 import { MemberComponent } from './modules/members/components/member/member.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { LimitToPipe } from './pipe/limit-to.pipe';
 
 @NgModule({
   declarations: [
@@ -16,8 +17,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     LevelComponent,
     CompetitionsComponent,
     FishComponent,
-    MemberComponent
-    
+    MemberComponent,    
+    LimitToPipe
   ],
   imports: [
     BrowserModule,
@@ -25,7 +26,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     SharedModule,
     HttpClientModule,
     MatPaginatorModule
-  ],
+    ],
   providers: [
     provideClientHydration(),
     provideHttpClient(withFetch())
