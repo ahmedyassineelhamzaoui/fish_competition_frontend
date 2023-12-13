@@ -23,6 +23,7 @@ export class MemberComponent {
     this.dialog.open(AddMemberComponent);
   }
   ngOnInit() {
+    this.isLoading = true;
     this.getAllMembers();
   }
   getAllMembers() {
