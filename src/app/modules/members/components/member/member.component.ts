@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import {AddMemberComponent} from '../add-member/add-member.component';
 import { MemberService } from '../../services/member.service';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-member',
@@ -13,6 +14,8 @@ export class MemberComponent {
   isLoading:boolean = false;
   errorMessage:string = '';
   members:any[] = [];
+  pageSize:number = 5;
+  currentPageIndex:number = 0;
 
   constructor(
     private dialog:MatDialog,
@@ -38,5 +41,9 @@ export class MemberComponent {
   }
   openAddMemberModal() {
     this.dialog.open(AddMemberComponent);
+  }
+  handlePageEvent(pageEvent: PageEvent) {
+    this.currentPageIndex = pageEvent.pageIndex;
+    this.pageSize = pageEvent.pageSize;
   }
 }
