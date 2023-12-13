@@ -6,13 +6,14 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { LevelComponent } from './modules/level/components/level/level.component';
 import { CompetitionsComponent } from './modules/competition/components/competition/competition.component';
-import { RouterModule } from '@angular/router';
+import { FishComponent } from './modules/fishs/components/fish/fish.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LevelComponent,
-    CompetitionsComponent
+    CompetitionsComponent,
+    FishComponent
   ],
   imports: [
     BrowserModule,
