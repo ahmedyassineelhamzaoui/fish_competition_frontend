@@ -12,6 +12,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { LimitToPipe } from './pipe/limit-to.pipe';
 import { FormsModule } from '@angular/forms';
 import { AddCompetitionComponent } from './modules/competition/components/add-competition/add-competition.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { AddCompetitionComponent } from './modules/competition/components/add-co
     HttpClientModule,
     MatPaginatorModule,
     FormsModule,
-
+    BrowserAnimationsModule
     ],
   providers: [
     provideClientHydration(),
