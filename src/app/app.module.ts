@@ -13,6 +13,7 @@ import { LimitToPipe } from './pipe/limit-to.pipe';
 import { FormsModule } from '@angular/forms';
 import { AddCompetitionComponent } from './modules/competition/components/add-competition/add-competition.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddMemberComponent } from './modules/members/components/add-member/add-member.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FishComponent,
     MemberComponent,    
     LimitToPipe,
-    AddCompetitionComponent
+    AddCompetitionComponent,
+    AddMemberComponent
   ],
   imports: [
     BrowserModule,

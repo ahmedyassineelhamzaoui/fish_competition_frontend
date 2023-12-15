@@ -7,7 +7,6 @@ import { AppModule } from '../../app.module';
 
 @NgModule({
   declarations: [
-    AddMemberComponent
   ],
   imports: [
     CommonModule,
