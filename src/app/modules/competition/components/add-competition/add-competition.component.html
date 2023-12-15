@@ -27,37 +27,36 @@
         <div class="grid grid-cols-2 gap-4 mt-4">
             <div class="">
                 <label for="code" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Code</label>
-                <input type="text" name="code"  class="block w-full mt-1 text-sm border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                <input type="text" [(ngModel)]="competition.code" name="code"  class="block w-full mt-1 text-sm border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
             </div>
             <div class="">
                 <label for="date" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Competition Date</label>
-                <input type="date" name="date"  class="block w-full mt-1 text-sm border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                <input type="date" [(ngModel)]="competition.date" name="date"  class="block w-full mt-1 text-sm border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
             </div>
         </div>
         <div class="grid grid-cols-2 gap-4 mt-4">
             <div class="">
                 <label for="startTime" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Start Time</label>
-                <input type="time" name="startTime"  class="block w-full mt-1 text-sm border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                <input type="time" [(ngModel)]="competition.startTime" name="startTime"  class="block w-full mt-1 text-sm border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
             </div>
             <div class="">
                 <label for="endTime" class="block text-sm font-medium text-gray-700 dark:text-gray-400">End Time</label>
-                <input type="time" name="endTime"  class="block w-full mt-1 text-sm border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                <input type="time" [(ngModel)]="competition.endTime" name="endTime"  class="block w-full mt-1 text-sm border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
             </div>
         </div>
         <div class="grid grid-cols-2 gap-4 mt-4">
             <div class="">
                 <label for="location" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Location</label>
-                <input type="text" name="location"  class="block w-full mt-1 text-sm border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                <input type="text" [(ngModel)]="competition.location" name="location"  class="block w-full mt-1 text-sm border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
             </div>
             <div class="">
                 <label for="amount" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Amount Of Competition</label>
-                <input min="0" type="number" name="amount"  class="block w-full mt-1 text-sm border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                <input min="0" type="number" [(ngModel)]="competition.amount" name="amount"  class="block w-full mt-1 text-sm border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
             </div>
         </div>
         <div class="flex justify-end align-center my-4 ">
-            <button type="button" class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">save</button>
+            <button type="button" (click)="saveCompetition()" class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">save</button>
             <button (click)="closeAddCompetitionModal()" type="button" class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">Close</button>
         </div>
-
     </form>
 </div>

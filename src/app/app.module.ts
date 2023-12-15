@@ -10,6 +10,8 @@ import { FishComponent } from './modules/fishs/components/fish/fish.component';
 import { MemberComponent } from './modules/members/components/member/member.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { LimitToPipe } from './pipe/limit-to.pipe';
+import { FormsModule } from '@angular/forms';
+import { AddCompetitionComponent } from './modules/competition/components/add-competition/add-competition.component';
 
 @NgModule({
   declarations: [
@@ -18,14 +20,17 @@ import { LimitToPipe } from './pipe/limit-to.pipe';
     CompetitionsComponent,
     FishComponent,
     MemberComponent,    
-    LimitToPipe
+    LimitToPipe,
+    AddCompetitionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
     HttpClientModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    FormsModule,
+
     ],
   providers: [
     provideClientHydration(),

@@ -41,7 +41,13 @@ export class CompetitionsComponent {
     );
   }
   openAddCompetitionModal(){
-    this.addCompetitionModal.open(AddCompetitionComponent);
+
+    const dialogRef = this.addCompetitionModal.open(AddCompetitionComponent);
+    dialogRef.afterClosed().subscribe(() => {
+      this.competitions = [];
+      this.getAllCompetitions();
+  });
+
   }
   handlePageEvent(pageEvent: PageEvent) {
     this.currentPageIndex = pageEvent.pageIndex;

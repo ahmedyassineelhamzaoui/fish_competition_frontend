@@ -30,6 +30,8 @@ export class LevelComponent {
     this.levelService.getAllLevels().subscribe(
       (response:any) => {
         this.levels.push(...response.details.levels);
+        
+        console.log(this.levels);
         this.isLoading=false;
       },
       (error) => {

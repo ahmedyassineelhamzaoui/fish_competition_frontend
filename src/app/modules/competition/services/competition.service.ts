@@ -13,4 +13,7 @@ export class CompetitionService {
   getAllCompetitions(){
     return this.httpClient.get(environment.apiURL +'competitions');
   }
+  addCompetition(competition:any){
+    return this.httpClient.post(environment.apiURL +'competition',competition);
+  }
 }
