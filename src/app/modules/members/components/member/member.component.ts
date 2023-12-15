@@ -5,6 +5,7 @@ import { MemberService } from '../../services/member.service';
 import { PageEvent } from '@angular/material/paginator';
 import { CompetitionService } from '../../../competition/services/competition.service';
 import { subscribe } from 'diagnostics_channel';
+import { AssignCompetitionComponent } from '../assign-competition/assign-competition.component';
 
 @Component({
   selector: 'app-member',
@@ -64,5 +65,9 @@ export class MemberComponent {
          console.log(error)
       }
     );
+  }
+  openAssignComeptitionModal(id: string){
+     this.dialog.open(AssignCompetitionComponent);
+     
   }
 }
