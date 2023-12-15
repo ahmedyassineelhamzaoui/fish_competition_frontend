@@ -13,7 +13,7 @@ export class AssignCompetitionComponent {
   errorMessage: string='';
   successMessage: string='';
   competitions: any[] = [];
-
+  selectedCompetition: string ='';
   constructor(
     private dialogRef: MatDialogRef<AssignCompetitionComponent>,
     private competitionService: CompetitionService
@@ -30,8 +30,15 @@ export class AssignCompetitionComponent {
        console.log(error);
     })
   }
-
   closeAssignCompetitionModal() {
     this.dialogRef.close();
+  }
+  assignCompetition(){
+    if (!this.selectedCompetition) {
+      alert('Please select a competition');
+      return;
+    }else{
+      console.log(this.selectedCompetition);
+    }
   }
 }

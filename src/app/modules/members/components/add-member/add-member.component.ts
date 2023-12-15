@@ -8,6 +8,8 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrl: './add-member.component.scss'
 })
 export class AddMemberComponent {
+ 
+
 
   member = {
     firstName: '',

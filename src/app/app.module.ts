@@ -15,6 +15,7 @@ import { AddCompetitionComponent } from './modules/competition/components/add-co
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddMemberComponent } from './modules/members/components/add-member/add-member.component';
 import { AssignCompetitionComponent } from './modules/members/components/assign-competition/assign-competition.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AssignCompetitionComponent } from './modules/members/components/assign-
     HttpClientModule,
     MatPaginatorModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgSelectModule
     ],
   providers: [
     provideClientHydration(),

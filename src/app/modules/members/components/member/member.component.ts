@@ -20,7 +20,8 @@ export class MemberComponent {
   pageSize:number = 5;
   currentPageIndex:number = 0;
   lengthOfCompetitions: number =0;
-
+  hhhh?: string;
+  
   constructor(
     private dialog:MatDialog,
     private memberService:MemberService,
@@ -68,6 +69,6 @@ export class MemberComponent {
   }
   openAssignComeptitionModal(id: string){
      this.dialog.open(AssignCompetitionComponent);
-     
+
   }
 }
