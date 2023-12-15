@@ -15,4 +15,8 @@ export class AssignCompetitionComponent {
   constructor(
     private dialogRef: MatDialogRef<AssignCompetitionComponent>,
   ) { }
+
+  closeAssignCompetitionModal() {
+    this.dialogRef.close();
+  }
 }
