@@ -9,6 +9,8 @@ import { CompetitionService } from '../../services/competition.service';
 })
 export class AddCompetitionComponent {
 
+  fadeInOut: 'enter' | 'leave' = 'enter';
+
   errorMessage: string = '';
   successMessage: string = '';
   details : string='';
@@ -63,7 +65,6 @@ export class AddCompetitionComponent {
           amount: 0
         };
       },
-
     );
   }
 }
