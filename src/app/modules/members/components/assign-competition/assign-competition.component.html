@@ -26,11 +26,11 @@
         </div>
         
         <div class="mt-3">
-            <label for="identityDocumentType" class="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-400">Identity Document Type</label>
-            <select id="identityDocumentType" name="identityDocumentType" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option selected value="PASSPORT">Passport</option>
-                <option value="IDENTITY_CARD">Identity Card</option>
-                <option value="DRIVING_LICENSE">Driving License</option>
+            <label for="compeition" class="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-400">All Competitions</label>
+            <select id="compeition" name="compeition" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            @for(competition of competitions;track $index){    
+                <option selected value="{{competition.id}}">{{competition.code}}</option>
+            }
             </select>
         </div>
         <div class="flex justify-end align-center my-4 ">
