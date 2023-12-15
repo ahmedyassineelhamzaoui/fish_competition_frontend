@@ -40,7 +40,11 @@ export class MemberComponent {
     );
   }
   openAddMemberModal() {
-    this.dialog.open(AddMemberComponent);
+    const dialogRef = this.dialog.open(AddMemberComponent);
+    dialogRef.afterClosed().subscribe(()=>{
+       this.members = [];
+       this.getAllMembers();
+    });
   }
   handlePageEvent(pageEvent: PageEvent) {
     this.currentPageIndex = pageEvent.pageIndex;

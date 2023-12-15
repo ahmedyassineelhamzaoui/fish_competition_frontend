@@ -12,5 +12,7 @@ export class MemberService {
   getMembers() {
     return this.httpClient.get(environment.apiURL+'members');
   }
-  
+  addMember(member:any){
+    return this.httpClient.post(environment.apiURL+'member',member);
+  }
 }
