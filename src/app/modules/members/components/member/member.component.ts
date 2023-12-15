@@ -3,6 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import {AddMemberComponent} from '../add-member/add-member.component';
 import { MemberService } from '../../services/member.service';
 import { PageEvent } from '@angular/material/paginator';
+import { CompetitionService } from '../../../competition/services/competition.service';
+import { subscribe } from 'diagnostics_channel';
 
 @Component({
   selector: 'app-member',
@@ -16,16 +18,19 @@ export class MemberComponent {
   members:any[] = [];
   pageSize:number = 5;
   currentPageIndex:number = 0;
+  lengthOfCompetitions: number =0;
 
   constructor(
     private dialog:MatDialog,
-    private memberService:MemberService
+    private memberService:MemberService,
+    private competitionService: CompetitionService
     ) { }
 
   
   ngOnInit() {
     this.isLoading = true;
     this.getAllMembers();
+    this.getAllCompetitions();
   }
   getAllMembers() {
     this.memberService.getMembers().subscribe(
@@ -49,5 +54,15 @@ export class MemberComponent {
   handlePageEvent(pageEvent: PageEvent) {
     this.currentPageIndex = pageEvent.pageIndex;
     this.pageSize = pageEvent.pageSize;
+  }
+  getAllCompetitions(){
+    this.competitionService.getAllCompetitions().subscribe(
+      (response: any) => {
+        this.lengthOfCompetitions= response.details.Competitions.length;
+      },
+      (error) => {
+         console.log(error)
+      }
+    );
   }
 }
