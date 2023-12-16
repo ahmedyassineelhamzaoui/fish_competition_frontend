@@ -4,7 +4,6 @@ import {AddMemberComponent} from '../add-member/add-member.component';
 import { MemberService } from '../../services/member.service';
 import { PageEvent } from '@angular/material/paginator';
 import { CompetitionService } from '../../../competition/services/competition.service';
-import { subscribe } from 'diagnostics_channel';
 import { AssignCompetitionComponent } from '../assign-competition/assign-competition.component';
 
 @Component({
@@ -21,7 +20,7 @@ export class MemberComponent {
   currentPageIndex:number = 0;
   lengthOfCompetitions: number =0;
   hhhh?: string;
-  
+
   constructor(
     private dialog:MatDialog,
     private memberService:MemberService,
@@ -68,7 +67,12 @@ export class MemberComponent {
     );
   }
   openAssignComeptitionModal(id: string){
-     this.dialog.open(AssignCompetitionComponent);
+     this.dialog.open(AssignCompetitionComponent,
+      {
+        data: {
+          id: id
+        }
+      });
 
   }
 }

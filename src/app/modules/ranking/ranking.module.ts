@@ -6,7 +6,6 @@ import { RankingComponent } from './components/ranking/ranking.component';
 
 @NgModule({
   declarations: [
-    RankingComponent
   ],
   imports: [
     CommonModule

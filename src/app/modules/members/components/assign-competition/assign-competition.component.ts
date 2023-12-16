@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component,Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CompetitionService } from '../../../competition/services/competition.service';
-
 @Component({
   selector: 'app-assign-competition',
   templateUrl: './assign-competition.component.html',
@@ -14,9 +13,11 @@ export class AssignCompetitionComponent {
   successMessage: string='';
   competitions: any[] = [];
   selectedCompetition: string ='';
+
   constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<AssignCompetitionComponent>,
-    private competitionService: CompetitionService
+    private competitionService: CompetitionService,
   ) { }
 
   ngOnInit() {
@@ -32,13 +33,18 @@ export class AssignCompetitionComponent {
   }
   closeAssignCompetitionModal() {
     this.dialogRef.close();
+
   }
   assignCompetition(){
     if (!this.selectedCompetition) {
       alert('Please select a competition');
       return;
     }else{
+      console.log(this.data.id);
       console.log(this.selectedCompetition);
     }
+  }
+  onCompetitionChange(e:any) {
+    this.selectedCompetition = e.target.value;
   }
 }

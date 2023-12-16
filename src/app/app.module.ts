@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddMemberComponent } from './modules/members/components/add-member/add-member.component';
 import { AssignCompetitionComponent } from './modules/members/components/assign-competition/assign-competition.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { RankingComponent } from './modules/ranking/components/ranking/ranking.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     LimitToPipe,
     AddCompetitionComponent,
     AddMemberComponent,
-    AssignCompetitionComponent
+    RankingComponent,
   ],
   imports: [
     BrowserModule,
