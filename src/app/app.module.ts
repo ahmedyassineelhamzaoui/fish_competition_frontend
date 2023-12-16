@@ -17,6 +17,8 @@ import { AddMemberComponent } from './modules/members/components/add-member/add-
 import { AssignCompetitionComponent } from './modules/members/components/assign-competition/assign-competition.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { RankingComponent } from './modules/ranking/components/ranking/ranking.component';
+import { HuntingComponent } from './modules/hunting/components/hunting/hunting.component';
+import { AddHuntingComponent } from './modules/hunting/components/add-hunting/add-hunting.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { RankingComponent } from './modules/ranking/components/ranking/ranking.c
     AddCompetitionComponent,
     AddMemberComponent,
     RankingComponent,
+    HuntingComponent,
+    AddHuntingComponent
   ],
   imports: [
     BrowserModule,
