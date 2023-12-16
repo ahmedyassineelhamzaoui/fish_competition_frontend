@@ -5,8 +5,10 @@ import { CompetitionsComponent } from './modules/competition/components/competit
 import { LevelComponent } from './modules/level/components/level/level.component';
 import { FishComponent } from './modules/fishs/components/fish/fish.component';
 import { MemberComponent } from './modules/members/components/member/member.component';
+import { HuntingComponent } from './modules/hunting/components/hunting/hunting.component';
 
 const routes: Routes = [
+  {path: 'hunting', component: HuntingComponent},
   {path: 'members', component: MemberComponent},
   {path: 'fishes', component: FishComponent},
   {path: 'competitions' , component: CompetitionsComponent},
