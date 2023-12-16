@@ -12,4 +12,7 @@ export class HuntingService {
   getAllHuntigns() {
      return this.httpClient.get(environment.apiURL+'huntings');
   }
+  addHunting(hunting: any) {
+    return this.httpClient.post(environment.apiURL+'hunting',hunting);
+  }
 }
