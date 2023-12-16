@@ -1,1 +1,104 @@
-<p>hunting works!</p>
+@if(!isLoading){
+    <div class="flex items-center justify-between mb-4">
+        <h3 class="font-bold">Huntings</h3>
+        <button type="button" (click)="openAddHuntingModal()"
+            class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"><i
+                class="fa-solid fa-plus"></i> Add Hunting</button>
+    </div>
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        @if(errorMessage !== ''){
+            <div id="alert-border-2"
+                class="flex items-center p-4 mb-4 text-red-800 border-t-4 border-red-300 bg-red-50 dark:text-red-400 dark:bg-gray-800 dark:border-red-800"
+                role="alert">
+                <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                    viewBox="0 0 20 20">
+                    <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                </svg>
+                <div class="ms-3 text-sm font-medium">
+                    <span>Error </span> {{errorMessage}}
+                </div>
+            </div>
+        }@else{
+
+           
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Id
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-center">
+                        First Name
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-center">
+                        Last Name
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-center">
+                        Nationality
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-center">
+                        identityDocumentType
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-center">
+                        identityNumber
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-center">
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @if(huntings.length > 0){
+                <tr *ngFor="let member of huntings | slice: currentPageIndex * pageSize : (currentPageIndex + 1) * pageSize;let i =index " class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                       {{i +1}}
+                    </th>
+                    <td class="px-6 py-4 text-center ">
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                     
+                    </td>
+                    <td class="px-6 py-4">
+                        <div class="flex items-center justify-center">
+                            <button title="edit" class="p-2 rounded-md bg-yellow-300 mr-2  ">
+                                <i class="fa-solid fa-pen-to-square text-white"></i>
+                            </button>
+                            <button title="delete" class="p-2 rounded-md bg-red-600 mr-1 ">
+                                <i class="fa-solid fa-trash-can text-white "></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                }@else {
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <td colspan="7" class="px-6 py-4 text-center">
+                        No hunting found
+                    </td>
+                }
+    
+            </tbody>
+    
+        </table>
+        <mat-paginator
+        [length]="huntings.length"
+        [showFirstLastButtons]="true"
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        [pageIndex]="currentPageIndex"
+        (page)="handlePageEvent($event)"
+    >
+    </mat-paginator>
+        }
+    </div>
+}@else {
+    <div class="flex items-center justify-center">
+        <app-spinner></app-spinner>
+    </div>
+}

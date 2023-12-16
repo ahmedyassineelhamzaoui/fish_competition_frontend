@@ -8,7 +8,7 @@ import { MemberComponent } from './modules/members/components/member/member.comp
 import { HuntingComponent } from './modules/hunting/components/hunting/hunting.component';
 
 const routes: Routes = [
-  {path: 'hunting', component: HuntingComponent},
+  {path: 'huntings', component: HuntingComponent},
   {path: 'members', component: MemberComponent},
   {path: 'fishes', component: FishComponent},
   {path: 'competitions' , component: CompetitionsComponent},
