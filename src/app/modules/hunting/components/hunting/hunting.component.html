@@ -30,19 +30,16 @@
                         Id
                     </th>
                     <th scope="col" class="px-6 py-3 text-center">
-                        First Name
+                        number of fish
                     </th>
                     <th scope="col" class="px-6 py-3 text-center">
-                        Last Name
+                        Competition code
                     </th>
                     <th scope="col" class="px-6 py-3 text-center">
-                        Nationality
+                        fish
                     </th>
                     <th scope="col" class="px-6 py-3 text-center">
-                        identityDocumentType
-                    </th>
-                    <th scope="col" class="px-6 py-3 text-center">
-                        identityNumber
+                        Member
                     </th>
                     <th scope="col" class="px-6 py-3 text-center">
                         Action
@@ -51,20 +48,21 @@
             </thead>
             <tbody>
                 @if(huntings.length > 0){
-                <tr *ngFor="let member of huntings | slice: currentPageIndex * pageSize : (currentPageIndex + 1) * pageSize;let i =index " class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <tr *ngFor="let hunting of huntings | slice: currentPageIndex * pageSize : (currentPageIndex + 1) * pageSize;let i =index " class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                        {{i +1}}
                     </th>
                     <td class="px-6 py-4 text-center ">
+                        {{hunting.numberOfFish}}
                     </td>
                     <td class="px-6 py-4 text-center">
+                        {{hunting.competition.code}}
                     </td>
                     <td class="px-6 py-4 text-center">
+                        {{hunting.fish.name}}
                     </td>
                     <td class="px-6 py-4 text-center">
-                    </td>
-                    <td class="px-6 py-4 text-center">
-                     
+                        {{hunting.member.firstName}}
                     </td>
                     <td class="px-6 py-4">
                         <div class="flex items-center justify-center">

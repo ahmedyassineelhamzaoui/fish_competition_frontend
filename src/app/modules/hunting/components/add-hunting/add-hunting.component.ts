@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
+import { HuntingService } from '../../services/hunting.service';
 
 @Component({
   selector: 'app-add-hunting',
@@ -7,4 +9,14 @@ import { Component } from '@angular/core';
 })
 export class AddHuntingComponent {
 
+  errorMessage: string="";
+  successMessage: string="";
+  constructor(
+    private dialogRef:MatDialogRef<AddHuntingComponent>,
+    private huntingService: HuntingService
+    ) { }
+
+    closeAddHuntingModal(){
+      this.dialogRef.close();
+    }
 }
