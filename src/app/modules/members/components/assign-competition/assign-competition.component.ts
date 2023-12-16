@@ -1,6 +1,7 @@
 import { Component,Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CompetitionService } from '../../../competition/services/competition.service';
+import { RankingService } from '../../../ranking/services/ranking.service';
 @Component({
   selector: 'app-assign-competition',
   templateUrl: './assign-competition.component.html',
@@ -18,6 +19,7 @@ export class AssignCompetitionComponent {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<AssignCompetitionComponent>,
     private competitionService: CompetitionService,
+    private rankingService: RankingService
   ) { }
 
   ngOnInit() {
@@ -40,8 +42,22 @@ export class AssignCompetitionComponent {
       alert('Please select a competition');
       return;
     }else{
-      console.log(this.data.id);
-      console.log(this.selectedCompetition);
+      const ranking = {
+        member: {
+          id: this.data.id
+        },
+        competition: {
+          id: this.selectedCompetition
+        }
+      };
+    
+      this.rankingService.addRanking(ranking).subscribe((response:any) => {
+       this.successMessage = response.message;
+       this.errorMessage = '';
+      }, error => {
+        this.errorMessage = error.message;
+        this.successMessage = '';
+      });
     }
   }
   onCompetitionChange(e:any) {
