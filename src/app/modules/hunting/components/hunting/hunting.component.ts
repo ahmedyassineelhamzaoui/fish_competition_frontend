@@ -24,8 +24,18 @@ export class HuntingComponent {
   ) { }
   ngOnInit(): void {
     this.isLoading= true;
+    this.getALLHuntings();
   }
-
+  
+  getALLHuntings() {
+    this.huntingService.getAllHuntigns().subscribe((response:any)=>{
+      this.huntings.push(...response.details.huntings);
+      this.isLoading = false;
+    },(error:any)=>{
+        this.errorMessage = error.error.message;
+        this.isLoading = false;
+    })
+  }
 
   openAddHuntingModal() {
     this.dialog.open(AddHuntingComponent);
