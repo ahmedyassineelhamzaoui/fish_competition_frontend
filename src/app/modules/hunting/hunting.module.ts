@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HuntingComponent } from './components/hunting/hunting.component';
-import { AddHuntingComponent } from './components/add-hunting/add-hunting.component';
 import { AppModule } from '../../app.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -12,6 +11,7 @@ import { AppModule } from '../../app.module';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     AppModule
   ]
 })

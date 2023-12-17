@@ -19,7 +19,6 @@ export class MemberComponent {
   pageSize:number = 5;
   currentPageIndex:number = 0;
   lengthOfCompetitions: number =0;
-  hhhh?: string;
 
   constructor(
     private dialog:MatDialog,

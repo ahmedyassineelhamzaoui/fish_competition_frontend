@@ -22,37 +22,41 @@
             </div>
         }
         <div class="flex justify-start">
-             <h2 class="font-bold">Add Competition</h2>
+             <h2 class="font-bold">Add Hunting</h2>
         </div>
-        <div class="grid grid-cols-2 gap-4 mt-4">
-            <div class="">
-                <label for="code" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Code</label>
-                <input type="text"  name="code"  class="block w-full mt-1 text-sm border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-            </div>
-            <div class="">
-                <label for="date" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Competition Date</label>
-                <input type="date" name="date"  class="block w-full mt-1 text-sm border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-            </div>
+        <div class="mt-3">
+            <label for="compeition" class="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-400">All
+                Competitions</label>
+                <select  (change)="selectedCompetition($event)" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option selected value="0">select a competition</option>
+                    @for(competition of competitions;track $index){
+                    <option [value]="competition.id">{{competition.code}}</option>
+                    }
+                </select>
         </div>
-        <div class="grid grid-cols-2 gap-4 mt-4">
-            <div class="">
-                <label for="startTime" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Start Time</label>
-                <input type="time"  name="startTime"  class="block w-full mt-1 text-sm border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-            </div>
-            <div class="">
-                <label for="endTime" class="block text-sm font-medium text-gray-700 dark:text-gray-400">End Time</label>
-                <input type="time" name="endTime"  class="block w-full mt-1 text-sm border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-            </div>
+        <div class="mt-3">
+            <label for="members" class="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-400">All
+                members</label>
+                <select (change)="selectedMember($event)" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option selected value="0">select a member</option>
+                    @for(member of members;track $index){
+                    <option [value]="member.id">{{member.firstName}}</option>
+                    }
+                </select>
         </div>
-        <div class="grid grid-cols-2 gap-4 mt-4">
-            <div class="">
-                <label for="location" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Location</label>
-                <input type="text" name="location"  class="block w-full mt-1 text-sm border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-            </div>
-            <div class="">
-                <label for="amount" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Amount Of Competition</label>
-                <input min="0" type="number"  name="amount"  class="block w-full mt-1 text-sm border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-            </div>
+        <div class="mt-3">
+            <label for="fish" class="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-400">All
+                fishs</label>
+                <select (change)="selectedFish($event)" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option selected value="0">select a fish</option>
+                    @for(fish of fishs;track $index){
+                    <option [value]="fish.id">{{fish.name}}</option>
+                    }
+                </select>
+        </div>
+        <div class="mt-3">
+            <label for="weight" class="block text-sm font-medium text-gray-700 dark:text-gray-400">Weight Of Fish</label>
+            <input [(ngModel)]="hunting.weight" min="0" type="number"  name="weight"  class="block w-full mt-1 text-sm border-gray-300 rounded-md dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
         </div>
         <div class="flex justify-end align-center my-4 ">
             <button type="button" (click)="saveHunting()" class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">save</button>

@@ -29,9 +29,7 @@ export class LevelComponent {
   getAllLevels(){
     this.levelService.getAllLevels().subscribe(
       (response:any) => {
-        this.levels.push(...response.details.levels);
-        
-        console.log(this.levels);
+        this.levels.push(...response.details.levels);        
         this.isLoading=false;
       },
       (error) => {

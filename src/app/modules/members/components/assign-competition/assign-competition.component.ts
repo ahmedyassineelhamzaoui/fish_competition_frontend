@@ -50,12 +50,13 @@ export class AssignCompetitionComponent {
           id: this.selectedCompetition
         }
       };
-    
+      console.log(ranking);
       this.rankingService.addRanking(ranking).subscribe((response:any) => {
+        
        this.successMessage = response.message;
        this.errorMessage = '';
       }, error => {
-        this.errorMessage = error.message;
+        this.errorMessage = error.error.message;
         this.successMessage = '';
       });
     }
