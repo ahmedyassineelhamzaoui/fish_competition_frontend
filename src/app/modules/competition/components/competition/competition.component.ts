@@ -81,5 +81,13 @@ export class CompetitionsComponent {
   
     return today >= competitionDateObj;
   }
+  filterBystatus(e: any){
+    if(e.target.value === "finished"){
+      console.log(e.target.value);
+    }
+    if(e.target.value === "opened"){
+      console.log(e.target.value);
+    }
+  }
 }
 	
