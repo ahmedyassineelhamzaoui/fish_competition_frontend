@@ -5,6 +5,8 @@ import { CompetitionService } from '../../services/competition.service';
 import { PageEvent } from '@angular/material/paginator';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { RankingComponent } from '../../../ranking/components/ranking/ranking.component';
+import { response } from 'express';
+import { error } from 'console';
 
 @Component({
   selector: 'app-competitions',
@@ -82,11 +84,18 @@ export class CompetitionsComponent {
     return today >= competitionDateObj;
   }
   filterBystatus(e: any){
-    if(e.target.value === "finished"){
-      console.log(e.target.value);
-    }
-    if(e.target.value === "opened"){
-      console.log(e.target.value);
+    if(e.target.value === "finished" || e.target.value === "opened"){
+      this.competitionService.getCompetitionByStatus(e.target.value).subscribe(
+        (response: any) => {
+          this.competitions = [];
+          if (response.details && Array.isArray(response.details.competitions)) {
+            this.competitions.push(...response.details.competitions);
+          } else {
+            console.error('response.details.Competitions is not defined or not iterable');
+          }
+        },(error)=>{
+          console.error(error.message);
+        });
     }
   }
 }
