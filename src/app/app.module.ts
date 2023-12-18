@@ -14,7 +14,6 @@ import { FormsModule } from '@angular/forms';
 import { AddCompetitionComponent } from './modules/competition/components/add-competition/add-competition.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddMemberComponent } from './modules/members/components/add-member/add-member.component';
-import { AssignCompetitionComponent } from './modules/members/components/assign-competition/assign-competition.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { RankingComponent } from './modules/ranking/components/ranking/ranking.component';
 import { HuntingComponent } from './modules/hunting/components/hunting/hunting.component';

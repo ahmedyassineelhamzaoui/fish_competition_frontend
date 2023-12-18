@@ -4,6 +4,7 @@ import { AddCompetitionComponent } from '../add-competition/add-competition.comp
 import { CompetitionService } from '../../services/competition.service';
 import { PageEvent } from '@angular/material/paginator';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { RankingComponent } from '../../../ranking/components/ranking/ranking.component';
 
 @Component({
   selector: 'app-competitions',
@@ -21,7 +22,8 @@ export class CompetitionsComponent {
 
   constructor(
     private competitionService: CompetitionService,
-    private addCompetitionModal: MatDialog
+    private addCompetitionModal: MatDialog,
+    private rankingModal : MatDialog
     ) { }
 
  
@@ -57,6 +59,10 @@ export class CompetitionsComponent {
   handlePageEvent(pageEvent: PageEvent) {
     this.currentPageIndex = pageEvent.pageIndex;
     this.pageSize = pageEvent.pageSize;
+  }
+
+  openRankModal() {
+   this.rankingModal.open(RankingComponent);
   }
 }
 	

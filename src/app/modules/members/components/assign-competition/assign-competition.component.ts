@@ -2,6 +2,8 @@ import { Component,Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CompetitionService } from '../../../competition/services/competition.service';
 import { RankingService } from '../../../ranking/services/ranking.service';
+
+
 @Component({
   selector: 'app-assign-competition',
   templateUrl: './assign-competition.component.html',
