@@ -45,4 +45,8 @@ export class RankingComponent {
         }
       );
     }
+    closeRankingModal(){
+      this.dialogRef.close();
+    }
+    
 }
