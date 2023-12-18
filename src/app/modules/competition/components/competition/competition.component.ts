@@ -71,5 +71,15 @@ export class CompetitionsComponent {
     }
     );
   }
+
+  isTodayGrateThanCompetitionDate(competitionDate: string): boolean {
+    const today = new Date();
+    const competitionDateObj = new Date(competitionDate);
+  
+    today.setHours(0, 0, 0, 0);
+    competitionDateObj.setHours(0, 0, 0, 0);
+  
+    return today >= competitionDateObj;
+  }
 }
 	

@@ -14,6 +14,7 @@ export class RankingComponent {
   rankings : any[] = [];
   currentPageIndex: number = 0;
   pageSize:number = 5;
+  isLoading: boolean = false;
 
   constructor(
     private rankingService:RankingService,
@@ -27,6 +28,7 @@ export class RankingComponent {
     }
 
     ngOnInit() {
+      this.isLoading = true;
       this.getRankingsByCompetitionId();
     }
     getRankingsByCompetitionId(){
@@ -34,9 +36,10 @@ export class RankingComponent {
       this.rankingService.getRankingsByCompetitionId(this.data.id).subscribe(
         (response: any) => {
           if (response.details && Array.isArray(response.details.rankings)) {
-            console.table(response);
             this.rankings.push(...response.details.rankings);
+            this.isLoading = false;
           } else {
+            this.isLoading = false;
             console.error('response.details.Rankings is not defined or not iterable');
           }
         },

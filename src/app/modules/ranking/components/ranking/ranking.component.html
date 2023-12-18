@@ -1,6 +1,6 @@
 <div id="show-ranking-container">
 
-    <form id="show-ranking-form">
+    <div id="show-ranking-form">
         <div class="flex align-itmes-center justify-end">
             <button (click)="closeRankingModal()" type="button" class="text-white bg-gray-700  font-medium rounded-full text-sm px-1.5 py-1.5 text-center me-2 mb-2 ">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" data-slot="icon" class="w-6 h-6">
@@ -8,6 +8,7 @@
                 </svg>                  
             </button>
         </div>
+        @if(!isLoading){
         @if(rankings.length >= 3){
             <div class="mx-4 flex align-itmes-center justify-between ">
                 <div>
@@ -16,11 +17,11 @@
                 <div class="flex align-itmes-center justify-between">
                     <div class="mx-2">
                         <img width="40" hight="60" src="../../../../../assets/images/second.png" alt="">
-                        <p>{{rankings[0].member.firstName}}</p>
+                        <p>{{rankings[1].member.firstName}}</p>
                     </div>
                     <div class="mx-2">
                         <img width="40" hight="60" src="../../../../../assets/images/first.png" alt="">
-                        <p>{{rankings[1].member.firstName}}</p>
+                        <p>{{rankings[0].member.firstName}}</p>
                     </div >
                     <div class="mx-2">
                         <img width="40" hight="60" src="../../../../../assets/images/third.png" alt="">
@@ -32,7 +33,6 @@
                 </div>
             </div>
         }
-
         <div class="relative overflow-x-auto scrollable-table">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -52,20 +52,28 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let ranking of rankings | slice: currentPageIndex * pageSize : (currentPageIndex + 1) * pageSize;let i =index " class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {{ranking.competition.code}}
-                        </th>
-                        <td class="px-6 py-4">
-                            {{ranking.member.firstName}} {{ranking.member.lastName}}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ranking.rank}}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ranking.score}}
-                        </td>
-                    </tr>
+                    @if(rankings.length > 0){
+                        <tr *ngFor="let ranking of rankings | slice: currentPageIndex * pageSize : (currentPageIndex + 1) * pageSize;let i =index " class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                {{ranking.competition.code}}
+                            </th>
+                            <td class="px-6 py-4">
+                                {{ranking.member.firstName}} {{ranking.member.lastName}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ranking.rank}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ranking.score}}
+                            </td>
+                        </tr>
+                    }@else{
+                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                            <td colspan="4" class="px-6 py-4 text-center">
+                                No ranking yet
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
             <mat-paginator
@@ -77,5 +85,10 @@
             >
             </mat-paginator>
         </div>
-    </form>
+        }@else{
+            <div class="flex items-center justify-center">
+                <app-spinner></app-spinner>
+            </div>
+        }
+    </div>
 </div>
