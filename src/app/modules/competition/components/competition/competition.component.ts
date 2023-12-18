@@ -32,7 +32,11 @@ export class CompetitionsComponent {
   getAllCompetitions(){
     this.competitionService.getAllCompetitions().subscribe(
       (response: any) => {
-        this.competitions.push(...response.details.Competitions);
+        if (response.details && Array.isArray(response.details.Competitions)) {
+          this.competitions.push(...response.details.Competitions);
+        } else {
+          console.error('response.details.Competitions is not defined or not iterable');
+        }
         this.isLoading = false;
       },
       (error) => {

@@ -38,8 +38,13 @@ export class HuntingComponent {
   }
 
   openAddHuntingModal() {
-    this.dialog.open(AddHuntingComponent);
+   const dialogRef =  this.dialog.open(AddHuntingComponent);
+   dialogRef.afterClosed().subscribe(()=>{
+    this.huntings = [];
+    this.getALLHuntings();
+   });
   }
+  
   handlePageEvent(event: PageEvent) {
     this.currentPageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
