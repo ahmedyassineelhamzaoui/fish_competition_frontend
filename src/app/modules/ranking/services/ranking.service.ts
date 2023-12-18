@@ -12,4 +12,8 @@ export class RankingService {
   addRanking(ranking:any){
     return this.httpClient.post(environment.apiURL+'ranking',ranking);
   }
+
+  getRankingsByCompetitionId(id: string) {
+    return this.httpClient.get(environment.apiURL+'rankings/'+id);
+  }
 }

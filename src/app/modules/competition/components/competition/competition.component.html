@@ -73,7 +73,7 @@
                     <td class="px-6 py-4">
                         <div class="flex items-center justify-between">
                             @if(competition.numberOfParticipants > 0){
-                                <button (click)="openRankModal()" title="see all participant with ranking" class="p-2 rounded-md bg-green-500 mr-1 ">
+                                <button (click)="openRankModal(competition.id)" title="see all participant with ranking" class="p-2 rounded-md bg-green-500 mr-1 ">
                                     <i class="fa-solid fa-eye text-white "></i>
                                 </button>
                             }

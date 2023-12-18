@@ -1,1 +1,51 @@
-<p>ranking works!</p>
+<div id="show-ranking-container">
+
+    <form id="show-ranking-form">
+
+
+        <div class="relative overflow-x-auto scrollable-table">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Competition
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Member
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Rank
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Score
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let ranking of rankings | slice: currentPageIndex * pageSize : (currentPageIndex + 1) * pageSize;let i =index " class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{ranking.competition.code}}
+                        </th>
+                        <td class="px-6 py-4">
+                            {{ranking.member.firstName}} {{ranking.member.lastName}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ranking.rank}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ranking.score}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <mat-paginator
+                [length]="rankings.length"
+                [showFirstLastButtons]="true"
+                [pageSizeOptions]="[5, 10, 25, 100]"
+                [pageIndex]="currentPageIndex"
+                (page)="handlePageEvent($event)"
+            >
+            </mat-paginator>
+        </div>
+    </form>
+</div>

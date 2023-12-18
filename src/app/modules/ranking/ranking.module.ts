@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RankingComponent } from './components/ranking/ranking.component';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment.deveopment';
 
 
 
@@ -11,4 +13,7 @@ import { RankingComponent } from './components/ranking/ranking.component';
     CommonModule
   ]
 })
-export class RankingModule { }
+export class RankingModule { 
+
+  
+}

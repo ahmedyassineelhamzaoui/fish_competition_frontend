@@ -61,8 +61,15 @@ export class CompetitionsComponent {
     this.pageSize = pageEvent.pageSize;
   }
 
-  openRankModal() {
-   this.rankingModal.open(RankingComponent);
+  openRankModal(id :string) {
+    console.log(id);
+   this.rankingModal.open(RankingComponent,
+    {
+        data :{
+          id: id
+        }
+    }
+    );
   }
 }
 	
