@@ -20,7 +20,7 @@ export class SidebarComponent {
        this.numberOfLevels = response.details.levels.length;
       },
       (error) => {
-        
+        console.error(error.message);
       }
     );
   }
