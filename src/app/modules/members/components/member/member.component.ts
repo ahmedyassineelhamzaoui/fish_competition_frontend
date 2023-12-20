@@ -74,4 +74,17 @@ export class MemberComponent {
       });
 
   }
+
+  searchMember(e:any){
+    this.memberService.searchMember(e.target.value).subscribe(
+      
+      (response:any) => {
+        this.members = [];
+        this.members.push(...response.details.members);
+      },
+      (error) => {
+        this.errorMessage = error.message;
+      }
+    );
+  }
 }

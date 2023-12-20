@@ -15,4 +15,7 @@ export class MemberService {
   addMember(member:any){
     return this.httpClient.post(environment.apiURL+'member',member);
   }
+  searchMember(searchText:string){
+    return this.httpClient.get(environment.apiURL+'member/'+searchText);
+  }
 }
