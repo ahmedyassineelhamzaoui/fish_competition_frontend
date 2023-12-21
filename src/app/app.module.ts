@@ -19,6 +19,7 @@ import { RankingComponent } from './modules/ranking/components/ranking/ranking.c
 import { HuntingComponent } from './modules/hunting/components/hunting/hunting.component';
 import { AddHuntingComponent } from './modules/hunting/components/add-hunting/add-hunting.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
